@@ -1,8 +1,8 @@
 export default {
-    semi: false,
-    tabWidth: 2,
-    singleQuote: true,
-    printWidth: 100,
-    trailingComma: "none",
+  semi: false,
+  singleQuote: true,
+  trailingComma: 'es5',
+  tabWidth: 2,
+  useTabs: false,
+  vueIndentScriptAndStyle: true
 }
-  

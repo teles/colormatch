@@ -1,8 +1,9 @@
-import tsPlugin from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-import vuePlugin from 'eslint-plugin-vue';
-import vueParser from 'vue-eslint-parser';
-import prettierPlugin from 'eslint-plugin-prettier';
+import tsPlugin from '@typescript-eslint/eslint-plugin'
+import tsParser from '@typescript-eslint/parser'
+import vuePlugin from 'eslint-plugin-vue'
+import vueParser from 'vue-eslint-parser'
+import prettierPlugin from 'eslint-plugin-prettier'
+import prettierConfig from 'eslint-config-prettier'
 
 export default [
   {
@@ -14,22 +15,23 @@ export default [
         ecmaVersion: 'latest',
         sourceType: 'module',
         ecmaFeatures: {
-          jsx: true,
-        },
-      },
+          jsx: true
+        }
+      }
     },
     ignores: ['coverage/*', 'node_modules/*'],
     plugins: {
       '@typescript-eslint': tsPlugin,
       vue: vuePlugin,
-      prettier: prettierPlugin,
+      prettier: prettierPlugin
     },
     rules: {
       ...tsPlugin.configs.recommended.rules, // Regras recomendadas do TypeScript
       ...vuePlugin.configs['vue3-recommended'].rules, // Regras recomendadas do Vue 3
-      'prettier/prettier': 'error', // Regras do Prettier aplicadas como erro
-      'vue/attributes-order': 'error', // Garantir que a ordem dos atributos seja corrigida
-      'vue/multi-word-component-names': 'off',
-    },
-  },
-];
+      ...prettierConfig.rules, // Regras do Prettier para evitar conflitos
+      'prettier/prettier': 'error', // Aplica o Prettier como regra de erro
+      'vue/attributes-order': 'error', // Garante a ordem dos atributos
+      'vue/multi-word-component-names': 'off'
+    }
+  }
+]

@@ -1,5 +1,8 @@
+<script lang="ts" setup>
+  import PaletteTable from '@/components/PaletteTable/PaletteTable.vue'
+</script>
 <template>
-    <div>
-        home
-    </div>
+  <div>
+    <PaletteTable />
+  </div>
 </template>
